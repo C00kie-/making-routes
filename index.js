@@ -1,12 +1,17 @@
 var server = require("./server");
 var router = require("./router");
 var requestHandlers = require("./requestHandlers");
-var handle = {}; /*un nvl obj, pas un peu sale?*/
+/*var handle = {};
 
 handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
 handle["/upload"] = requestHandlers.upload;
-/*fin de la def de l obj*/
+*/
+
+var handle = {
+  '/' : 'resquestHandlers.start',
+  '/start' : 'requestHandlers.start',
+  '/upload' : 'resquestHandlers.upload'
+}
 
 server.start(router.route, handle);
-
